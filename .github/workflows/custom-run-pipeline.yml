@@ -24,14 +24,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
       - name: DEBUG: show all inputs
         run: |
           echo ">>> parameters_file = '${{ inputs.parameters_file }}'"
           echo ">>> resource_group   = '${{ inputs.resource_group }}'"
           echo ">>> workspace_name   = '${{ inputs.workspace_name }}'"
           echo ">>> job_name         = '${{ inputs.job_name }}'"
-
       - name: "Az CLI login"
         uses: azure/login@v1
         with:

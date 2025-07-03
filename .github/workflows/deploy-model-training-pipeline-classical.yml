@@ -12,7 +12,7 @@ jobs:
   get-config:
       uses: Azure/mlops-templates/.github/workflows/read-yaml.yml@main
       with:
-        file_name: workflows/config-infra-prod.yml
+        file_name: .github/config-infra-prod.yml
 
   debug-config:
     needs: get-config

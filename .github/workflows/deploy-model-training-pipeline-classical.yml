@@ -13,6 +13,15 @@ jobs:
       uses: Azure/mlops-templates/.github/workflows/read-yaml.yml@main
       with:
         file_name: config-infra-prod.yml
+
+  debug-config:
+    needs: get-config
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show resource_group
+        run: echo "resource_group = ${{ needs.get-config.outputs.resource_group }}"
+      - name: Show aml_workspace
+        run: echo "aml_workspace  = ${{ needs.get-config.outputs.aml_workspace }}"
   
   create-compute:
       needs: get-config

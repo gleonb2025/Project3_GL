@@ -52,6 +52,10 @@ jobs:
         run: az extension add -n ml -y
       - name: update-extension
         run: az extension update -n ml
+      - name: Debug: list workspace root
+        run: |
+          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          ls -R . 
       - name: create-dataset-from-file
         if: ${{ inputs.file_type == ''}}
         run: |

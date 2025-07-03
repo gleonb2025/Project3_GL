@@ -49,8 +49,8 @@ jobs:
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
-      name: machine-failure-data
-      data_file: mlops/azureml/train/data.yml
+      name: used-cars-data
+      data_file: ./data/used_cars.csv
     # secrets:
     #   AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
     #   AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}

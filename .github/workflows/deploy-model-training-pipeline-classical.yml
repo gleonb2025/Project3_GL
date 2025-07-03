@@ -33,7 +33,7 @@ jobs:
       outputs:
         # nothing to change here, just for clarity
       steps:
-        - name: 🔍 Show parsed config values
+        - name: Show parsed config values
           run: |
             echo ">>> resource_group from get-config = '${{ needs.get-config.outputs.resource_group }}'"
             echo ">>> aml_workspace  from get-config = '${{ needs.get-config.outputs.aml_workspace }}'"

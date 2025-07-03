@@ -1,0 +1,10 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+
+name: used-cars-train-env    # Provide the name for the environment
+image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+conda_file: ../../../data-science/environment/train-conda.yml
+description: >-
+  Azure ML environment for training the used-cars price prediction model.
+  Includes all necessary dependencies—scikit-learn, pandas, MLflow, 
+  and the Azure ML SDK—to run the ‘prep’, ‘train’, and ‘register’ steps in
+  the pipeline.

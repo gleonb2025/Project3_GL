@@ -29,16 +29,6 @@ jobs:
         # AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         # AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
         # AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      # Insert this right here to see what got parsed:
-      outputs:
-        # nothing to change here, just for clarity
-      steps:
-        - name: Show parsed config values
-          run: |
-            echo ">>> resource_group from get-config = '${{ needs.get-config.outputs.resource_group }}'"
-            echo ">>> aml_workspace  from get-config = '${{ needs.get-config.outputs.aml_workspace }}'"
-
-        
 
         
       secrets:
@@ -50,7 +40,7 @@ jobs:
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
-      name: used-cars-data
+      name: machine-failure-data
       data_file: mlops/azureml/train/data.yml
     # secrets:
     #   AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}

@@ -12,16 +12,7 @@ jobs:
   get-config:
       uses: Azure/mlops-templates/.github/workflows/read-yaml.yml@main
       with:
-        file_name: .github/config-infra-prod.yml
-
-  debug-config:
-    needs: get-config
-    runs-on: ubuntu-latest
-    steps:
-      - name: Show resource_group
-        run: echo "resource_group = ${{ needs.get-config.outputs.resource_group }}"
-      - name: Show aml_workspace
-        run: echo "aml_workspace  = ${{ needs.get-config.outputs.aml_workspace }}"
+        file_name: config-infra-prod.yml
   
   create-compute:
       needs: get-config
@@ -49,8 +40,8 @@ jobs:
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
-      name: used-cars-data
-      data_file: data/used_cars.csv
+      name: machine-failure-data
+      data_file: mlops/azureml/train/data.yml
     # secrets:
     #   AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
     #   AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
